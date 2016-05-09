@@ -11,11 +11,16 @@ font-color: black;
 text-align: center;
 }
 
+#subTitle {
+  margin-left: 50px;
+}
+
 button  {
   width: 200px;
   height: auto;
   padding: 10px 15px;
-  font-size: 14px;
+  font-family: fantasy;
+  font-size: 18px;
   font-weight: bold;
   background-color: #3385ff;
   border: none;
@@ -46,16 +51,16 @@ button  {
 .container3 {
   display: inline-block;
   margin-left: 50px;
-  margin-top: 150px;
+  margin-top: 100px;
   position- relative;
 }
 
 input  {
-  background-color: #3385ff;
+  background-color: #ffffff;
   font-family: fantasy;
   font-size: 20px;
   font-weight: bold;
-  font-color: black;
+  border-color: #3385ff;
   text-align: center;
   border-radius: 4px;
 }
