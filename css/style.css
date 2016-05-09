@@ -73,6 +73,17 @@ button  {
   position- relative;
 }
 
+.firstFlexColumn {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: -200px;
+}
+
+.secondFlexColumn {
+  flex-direction: column;
+  margin-right: 50px;
+}
+
 input  {
   background-color: #ffffff;
   font-family: fantasy;
