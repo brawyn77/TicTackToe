@@ -1,0 +1,61 @@
+body  {
+  width: 100%;
+  height: auto;
+}
+
+h1 {
+font-family: fantasy;
+font-size: 36px;
+font-weight: bold;
+font-color: black;
+text-align: center;
+}
+
+button  {
+  width: 200px;
+  height: auto;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #3385ff;
+  border: none;
+  border-radius: 4px;
+  border:
+}
+
+.overlay {
+  margin-left: 50px;
+  margin-top: 50px;
+  postion: absolute;
+}
+
+.container1 {
+  display: inline-block;
+  margin-left: 50px;
+  margin-top: 50px;
+  position- relative;
+}
+
+.container2 {
+  display: inline-block;
+  margin-left: 50px;
+  margin-top: 100px;
+  position- relative;
+}
+
+.container3 {
+  display: inline-block;
+  margin-left: 50px;
+  margin-top: 150px;
+  position- relative;
+}
+
+input  {
+  background-color: #3385ff;
+  font-family: fantasy;
+  font-size: 20px;
+  font-weight: bold;
+  font-color: black;
+  text-align: center;
+  border-radius: 4px;
+}
