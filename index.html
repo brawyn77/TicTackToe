@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Tic Tack Toe Setup</title>
+  <title>Tic Tack Toe</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
   <div class="overlay">
-        <h1>Tic Tac Toe Setup</h1>
+        <h1 id="setupTag">Tic Tac Toe Setup</h1>
       <div class="containerHead">
         <button type="button">Two players</button>
         <button type="button">Submit to start game</button>
@@ -25,6 +25,22 @@
       <button type="button">Number of games</button>
       <input type="text" name="nosOfGames" value="Nos of Games"/>
     </div>
+  </div>
+
+  <div class="board">
+        <h1 id="gameTag">Tic Tac Toe Game</h1>
+      <div class="firstLine">
+        <button id="startGame" type="button">Start Game</button>
+        <button id="name1" type="button">Name 1</button>
+      </div>
+      <div class="secondline">
+        <button id="name2" type="button">Name 2</button>
+        <button id="gamesToGo" type="button">Games to go</button>
+      </div>
+      <div class="thirdline">
+        <button id="resetGame" type="button">Reset Game</button>
+        <button id="tiedGames" type="button">Tied games</button>
+      </div>
   </div>
 
   <script charset="utf-8"></script>

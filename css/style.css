@@ -4,13 +4,26 @@ body  {
 }
 
 h1 {
-margin-left: 50px;
-margin-top: 50px;
 font-family: fantasy;
 font-size: 36px;
 font-weight: bold;
 font-color: black;
 position: relative;
+}
+
+#setupTag  {
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+#gameTag {
+  top: -100px;
+  margin-left: 50px;
+}
+
+.startGame  {
+padding-right: 200px;
+  position: relative;
 }
 
 button  {
@@ -29,6 +42,7 @@ button  {
   margin-left: 50px;
   margin-top: 50px;
   postion: absolute;
+  display: none;
 }
 
 .containerHead {
@@ -67,4 +81,13 @@ input  {
   border-color: #3385ff;
   text-align: center;
   border-radius: 4px;
+}
+
+.board {
+  margin-left: 250px;
+  margin-top: 150px;
+  width: 600px;
+  height: 600px;
+  background-color: #3385ff;
+  position: absolute;
 }
