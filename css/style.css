@@ -4,19 +4,17 @@ body  {
 }
 
 h1 {
+margin-left: 50px;
+margin-top: 50px;
 font-family: fantasy;
 font-size: 36px;
 font-weight: bold;
 font-color: black;
-text-align: center;
-}
-
-#subTitle {
-  margin-left: 50px;
+position: relative;
 }
 
 button  {
-  width: 200px;
+  width: 215px;
   height: auto;
   padding: 10px 15px;
   font-family: fantasy;
@@ -25,7 +23,6 @@ button  {
   background-color: #3385ff;
   border: none;
   border-radius: 4px;
-  border:
 }
 
 .overlay {
@@ -34,24 +31,31 @@ button  {
   postion: absolute;
 }
 
+.containerHead {
+  display: inline-block;
+  margin-left: 50px;
+  margin-top: 0px;
+  position: relative;
+}
+
 .container1 {
   display: inline-block;
   margin-left: 50px;
-  margin-top: 50px;
+  margin-top: 70px;
   position- relative;
 }
 
 .container2 {
   display: inline-block;
   margin-left: 50px;
-  margin-top: 100px;
+  margin-top: 70px;
   position- relative;
 }
 
 .container3 {
   display: inline-block;
   margin-left: 50px;
-  margin-top: 100px;
+  margin-top: 70px;
   position- relative;
 }
 
