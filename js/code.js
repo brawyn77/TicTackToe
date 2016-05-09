@@ -1,26 +1,18 @@
+// setup global variables we need: player1Name, player2Name, xOro, playerStartOrder, player1Wins, player2Wins, gamesToGo, gamesNos, row1Array, row2Array, row3Array, column1Array, column2Array, column3Array, diagonal1Array, diagonal2Array, tiedGames, displayNoneSwitch
 
-var columns = ['column1', 'column2', 'column3'];
-var rows = ['row1', 'row2', 'row3'];
 
-var makeTable = function()  {
-  for (var i = 0; i < rows.length; i++){
-    var rowBuilder = $('<div>').addClass('row');
-      for (var i = 0; i < columns.length; i++){
-        var columnBuilder = $('<div>').addClass('column');
-          // board.append(column);
-    // board.append(row);
-    console.log("column");
-    console.log("row");
+//setup function developed to set the initial variables to pass into the gameplay and switch into game mode
 
-    }
-  }
-}
+//start game function
 
-var board = 4;
-$('body').append(board);
-$('#board').append(columns);
-$('#board').append(rows);
+// gameplay function
 
-$('.board').css({'position': 'absolute', 'width': '600px', 'height': '600px', 'border-style': 'double', 'border-color': 'black', 'margin-left': '200px'});
-$('.row').css({'display': 'flex', 'width': '100px', 'height': '100px'});
-$('.column').css({'width': '100px', 'height': '100px', 'border-style': 'double', 'border-color': 'black'});
+// function to load winner arrays
+
+// function to check arrays for a winner after 5th move
+
+//winner function
+
+//scoring and games to go function
+
+//reset game function

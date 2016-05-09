@@ -1,104 +1,181 @@
-body  {
-  width: 100%;
-  height: auto;
-}
+body {
+		font-family:arial,helvetica,sans-serif;
+		font-size:12px;
+	}
 
-h1 {
-font-family: fantasy;
-font-size: 36px;
-font-weight: bold;
-font-color: black;
-position: relative;
-}
+  #setupScreen {
+		width:100%;
+		margin:0px auto;
+		padding:10px;
+    text-align: left;
+    display: none;
+	}
 
-#setupTag  {
-  margin-left: 50px;
-  margin-top: 50px;
-}
+  #setupTag  {
+    margin-left: 200px;
+  }
 
-#gameTag {
-  top: -100px;
-  margin-left: 50px;
-}
+  h1  {
+    font-family: fantasy;
+    font-size: 36px;
+  }
 
-.startGame  {
-padding-right: 200px;
-  position: relative;
+  #container1  {
+    margin-top:10px;
+    float:left;
+    padding:10px;
+    margin-left: 100px;
+    width:250px;
+    height:400px;
+  }
+
+  #container2  {
+    margin-top:10px;
+    margin-left: 150px;
+    padding:10px;
+    float:left;
+    width:250px;
+    height:400px;
+  }
+
+input  {
+  padding:10px;
+  font-size: 18px;
+  font-family: fantasy;
+  border-radius: 5px;
+  border:1px solid #3385ff;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 button  {
-  width: 215px;
-  height: auto;
-  padding: 10px 15px;
-  font-family: fantasy;
   font-size: 18px;
-  font-weight: bold;
-  background-color: #3385ff;
-  border: none;
-  border-radius: 4px;
-}
-
-.overlay {
-  margin-left: 50px;
-  margin-top: 50px;
-  postion: absolute;
-  display: none;
-}
-
-.containerHead {
-  display: inline-block;
-  margin-left: 50px;
-  margin-top: 0px;
-  position: relative;
-}
-
-.container1 {
-  display: inline-block;
-  margin-left: 50px;
-  margin-top: 70px;
-  position- relative;
-}
-
-.container2 {
-  display: inline-block;
-  margin-left: 50px;
-  margin-top: 70px;
-  position- relative;
-}
-
-.container3 {
-  display: inline-block;
-  margin-left: 50px;
-  margin-top: 70px;
-  position- relative;
-}
-
-.firstFlexColumn {
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: -200px;
-}
-
-.secondFlexColumn {
-  flex-direction: column;
-  margin-right: 50px;
-}
-
-input  {
-  background-color: #ffffff;
   font-family: fantasy;
-  font-size: 20px;
-  font-weight: bold;
-  border-color: #3385ff;
-  text-align: center;
-  border-radius: 4px;
+  border-radius: 5px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: #3385ff
 }
 
-.board {
-  margin-left: 250px;
-  margin-top: 150px;
-  width: 600px;
-  height: 600px;
-  background-color: #3385ff;
-  position: absolute;
+  p  {
+    font-size: 18px;
+    font-family: fantasy;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+#wrapper {
+		width:900px;
+		margin:0px auto;
+		padding:10px;
+    /*display: none;*/
+	}
+
+	#header {
+		height:60px;
+		padding:10px;
+	}
+
+	#content {
+		margin-top:10px;
+		padding-bottom:10px;
+	}
+
+	#content div {
+		padding:10px;
+		float:left;
+	}
+
+	#content-left {
+		width:160px;
+		height:500px;
+	}
+
+  #content-box1, #content-box2, #content-box3 {
+		padding:10px;
+		border:1px solid #3385ff;
+    border-top: #ffffff;
+		position:absolute;
+		margin-top:1px;
+		height:150px;
+	}
+
+  #content-box1 {
+		margin-left:189px;
+    border-left: #ffffff;
+		width:150px;
+	}
+	#content-box2 {
+		margin-left:360px;
+		width:150px;
+	}
+	#content-box3 {
+		margin-left:532px;
+    border-right: #ffffff;
+		width:150px;
+	}
+
+  #content-right {
+		margin-left:530px;
+    width:165px;
+		height:500px;
+	}
+
+#content-box4, #content-box5, #content-box6 {
+    padding:10px;
+    border:1px solid #3385ff;
+    position: absolute;
+    margin-top:172px;
+    height:150px;
 }
+
+  #content-box4 {
+		margin-left:189px;
+    border-left: #ffffff;
+		width:150px;
+	}
+	#content-box5 {
+		margin-left:360px;
+		width:150px;
+	}
+	#content-box6 {
+		margin-left:532px;
+    border-right: #ffffff;
+		width:150px;
+	}
+
+  #content-box7, #content-box8, #content-box9 {
+      padding:10px;
+      border:1px solid #3385ff;
+      border-bottom: #ffffff;
+      position: absolute;
+      margin-top:342px;
+      height:150px;
+  }
+
+    #content-box7 {
+  		margin-left:189px;
+      border-left: #ffffff;
+  		width:150px;
+  	}
+  	#content-box8 {
+  		margin-left:360px;
+  		width:150px;
+  	}
+  	#content-box9 {
+  		margin-left:532px;
+      border-right: #ffffff;
+  		width:150px;
+  	}
+
+	#footer {
+		float:left;
+		margin-top:10px;
+		margin-bottom:10px;
+		padding:10px;
+		width:878px;
+	}
+	#bottom {
+		clear:both;
+		text-align:right;
+	}

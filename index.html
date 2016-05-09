@@ -2,49 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Tic Tack Toe</title>
+  <title>Tic Tac Toe</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-  <div class="overlay">
+  <div id="setupScreen">
         <h1 id="setupTag">Tic Tac Toe Setup</h1>
-      <div class="containerHead">
-        <button type="button">Two players</button>
-        <button type="button">Submit to start game</button>
-      </div>
-    <div class="container1">
-      <input type="text" name="player1Name" value="Player 1 name"/>
-      <input type="text" name="player1XorO" value="X or O"/>
-    </div>
-    <div class="container2">
-      <input type="text" name="player2Name" value="Player 2 name"/>
-      <input type="text" name="player2XorO" value="O or X"/>
-    </div>
-    <div class="container3">
+    <div id="container1">
+      <button type="button">Two player game</button>
+      <input type="text" name="player1Name" value="Insert Player 1 name"/>
+      <input type="text" name="player2Name" value="Insert Player 2 name"/>
       <button type="button">Number of games</button>
-      <input type="text" name="nosOfGames" value="Nos of Games"/>
+    </div>
+    <div id="container2">
+      <button type="button">Submit to start game</button>
+      <input type="text" name="player1XorO" value="Insert X or O"/>
+      <input type="text" name="player2XorO" value="Insert O or X"/>
+      <input type="text" name="nosOfGames" value="Insert Nos of Games"/>
     </div>
   </div>
 
-  <div class="board">
-        <h1 id="gameTag">Tic Tac Toe Game</h1>
-      <div class="firstFlexColumn">
-        <button id="startGame" type="button">Start Game</button>
-        <button id="gamesToGo" type="button">Games to go</button>
-        <button id="resetGame" type="button">Reset Game</button>
-      </div>
-      <div class="secondFlexColumn">
-        <button id="name1" type="button">Name 1</button>
-        <h3>"ScorePlayer1"</h3>
-        <button id="name2" type="button">Name 2</button>
-        <h3>"ScorePlayer2"</h3>
-        <button id="tiedGames" type="button">Tied games</button>
-        <h3>"Nos of tied games"</h3>
-      </div>
+  <div id="wrapper">
+	<div id="header">
+    <h1 id="gameTag">Tic Tac Toe Game</h1>
   </div>
 
+	<div id="content">
+    <div id="content-left">
+      <button type="button">Start game </button>
+      <p>Games to go: </p>
+      <button type="button">Reset</button>
+    </div>
+    <div id="content-box1"><p>Box 1</p></div>
+  	<div id="content-box2"><p>Box 2</p></div>
+  	<div id="content-box3"><p>Box 3</p></div>
+    <div id="content-box4"><p>Box 4</p></div>
+  	<div id="content-box5"><p>Box 5</p></div>
+  	<div id="content-box6"><p>Box 6</p></div>
+    <div id="content-box7"><p>Box 7</p></div>
+  	<div id="content-box8"><p>Box 8</p></div>
+  	<div id="content-box9"><p>Box 9</p></div>
+    <div id="content-right">
+      <p>Player 1 wins: </p>
+      <p>Player 2 wins: </p>
+      <p>Tied games: </p>
+    </div>
+	</div>
+	<div id="footer"></div>
+	<div id="bottom"></div>
   <script charset="utf-8"></script>
   <script src="js/code.js"></script>
+</div>
 </body>
 </html>
