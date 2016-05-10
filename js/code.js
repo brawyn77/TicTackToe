@@ -29,6 +29,10 @@ function startGame()  {
 // put players names into the game board
 // put games in games to go
 //put in initial scores into Player1, Player2 and Tied games
+  $('#gToG').text("Games to go: " + nosOfGames);
+  $('#p1W').text(player1Name + " wins: " + player1Wins);
+  $('#p2W').text(player2Name + " wins: " + player2Wins);
+  $('#tG').text("Tied games: " + tiedGames);
 }
 // gameplay function
 
