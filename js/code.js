@@ -4,7 +4,7 @@ var player2Name = "";
 var player1Wins = 0;
 var player2Wins = 0;
 var gamesToGo = 0;
-var nosOfGames = 0;
+var nosOfGames = "";
 var tiedGames = 0;
 var row1Array = [null, null, null];
 var row2Array = [null, null, null];
@@ -14,19 +14,22 @@ var column2Array = [null, null, null];
 var column3Array = [null, null, null];
 var diagonal1Array = [null, null, null];
 var diagonal2Array = [null, null, null];
-var displayNoneSwitch = "display: none"
 
 //setup function developed to set the initial variables to pass into the gameplay and switch into game mode
 function setupVariables()  {
   player1Name = document.getElementById('player1Name').value;
   player2Name = document.getElementById('player2Name').value;
   nosOfGames = document.getElementById('nosOfGames').value;
+  $('#setupScreen').css({"display": "none"});
+  $('#wrapper').css({"display": "inline"});
 }
-console.log(player1Name, player2Name, nosOfGames);
-
 
 //start game function
-
+function startGame()  {
+// put players names into the game board
+// put games in games to go
+//put in initial scores into Player1, Player2 and Tied games
+}
 // gameplay function
 
 // function to load winner arrays
