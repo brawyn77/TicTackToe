@@ -10,15 +10,12 @@
         <h1 id="setupTag">Tic Tac Toe Setup</h1>
     <div id="container1">
       <button type="button">Two player game</button>
-      <input type="text" name="player1Name" value="Insert Player 1 name"/>
-      <input type="text" name="player2Name" value="Insert Player 2 name"/>
-      <button type="button">Number of games</button>
+      <input id="player1Name" type="text" name="player1Name" value="Insert Player 1 name"/>
+      <input id="player2Name" type="text" name="player2Name" value="Insert Player 2 name"/>
     </div>
     <div id="container2">
-      <button type="button">Submit to start game</button>
-      <input type="text" name="player1XorO" value="Insert X or O"/>
-      <input type="text" name="player2XorO" value="Insert O or X"/>
-      <input type="text" name="nosOfGames" value="Insert Nos of Games"/>
+      <button onclick="setupVariables()">Submit to start game</button>
+      <input id="nosOfGames" type="text" name="nosOfGames" value="Insert Nos of Games"/>
     </div>
   </div>
 
