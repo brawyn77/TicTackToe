@@ -115,12 +115,6 @@ button  {
 		width:150px;
 	}
 
-  #content-right {
-		margin-left:530px;
-    width:165px;
-		height:500px;
-	}
-
 #content-box4, #content-box5, #content-box6 {
     padding:10px;
     border:1px solid #3385ff;
@@ -167,6 +161,12 @@ button  {
       border-right: #ffffff;
   		width:150px;
   	}
+
+	#content-right {
+			margin-left:530px;
+	    width:165px;
+			height:500px;
+	}
 
 	#footer {
 		float:left;

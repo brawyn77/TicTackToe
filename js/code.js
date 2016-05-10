@@ -7,10 +7,11 @@ var player2Wins = 0;
 var gamesToGo = 10;
 var nosOfGames = 10;
 var tiedGames = 0;
+var successArray = [[0, 0, 0], [1, 1, 1], [0, 0, 0]]
 var row1Array = [null, null, null];
 var row2Array = [null, null, null];
 var row3Array = [null, null, null];
-var column1Array = [null, null, null];
+var column1Array = [1, 1, null];
 var column2Array = [null, null, null];
 var column3Array = [null, null, null];
 var diagonal1Array = [null, null, null];
@@ -26,24 +27,32 @@ function setupVariables()  {
 }
 
 // gameplay function
-function gamePlay()  {
-  var addXorO = document.getElementById('contentBoxes');
-  contentBoxes.style.cursor = 'pointer';
-  contentBoxes.onclick = function() {
-    console.log("put x in box");
-  };
-}
+// function gamePlay()  {
+
+// }
 
 // function to load winner arrays
 
 // function to check arrays for a winner after 5th move
+function checkArrays()  {
+  var count = 0;
+   for(var i=0, n=3; i < n; i++) {
+      count += column1Array[i];
+    }
+    checkSuccess(count);
+  }
+
+function checkSuccess(count) {
+      if (count != 3)  {
+        console.log("You didnt win");
+      } else  {
+        console.log("You win");
+      }
+   }
 
 //winner function
 
 //scoring and games to go function
-
-// put in hard start to troubleshoot the gameplay
-startGame();
 
 //start game function
 function startGame()  {
@@ -54,7 +63,10 @@ function startGame()  {
   $('#p1W').text(player1Name + " wins: " + player1Wins);
   $('#p2W').text(player2Name + " wins: " + player2Wins);
   $('#tG').text("Tied games: " + tiedGames);
-  gamePlay();
+  checkArrays();
 }
 
 //reset game function
+
+// put in hard start to troubleshoot the gameplay
+startGame();
