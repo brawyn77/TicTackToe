@@ -8,7 +8,7 @@ body {
 		margin:0px auto;
 		padding:10px;
     text-align: left;
-    /*display: none;*/
+    display: none;
 	}
 
   #setupTag  {
@@ -68,7 +68,7 @@ button  {
 		width:900px;
 		margin:0px auto;
 		padding:10px;
-    display: none;
+    display: block;
 	}
 
 	#header {
@@ -87,7 +87,7 @@ button  {
 	}
 
 	#content-left {
-		width:160px;
+		width:100px;
 		height:500px;
 	}
 
@@ -101,16 +101,16 @@ button  {
 	}
 
   #content-box1 {
-		margin-left:189px;
+		margin-left:9px;
     border-left: #ffffff;
 		width:150px;
 	}
 	#content-box2 {
-		margin-left:360px;
+		margin-left:180px;
 		width:150px;
 	}
 	#content-box3 {
-		margin-left:532px;
+		margin-left:352px;
     border-right: #ffffff;
 		width:150px;
 	}
@@ -130,16 +130,16 @@ button  {
 }
 
   #content-box4 {
-		margin-left:189px;
+		margin-left:9px;
     border-left: #ffffff;
 		width:150px;
 	}
 	#content-box5 {
-		margin-left:360px;
+		margin-left:180px;
 		width:150px;
 	}
 	#content-box6 {
-		margin-left:532px;
+		margin-left:352px;
     border-right: #ffffff;
 		width:150px;
 	}
@@ -154,16 +154,16 @@ button  {
   }
 
     #content-box7 {
-  		margin-left:189px;
+  		margin-left:9px;
       border-left: #ffffff;
   		width:150px;
   	}
   	#content-box8 {
-  		margin-left:360px;
+  		margin-left:180px;
   		width:150px;
   	}
   	#content-box9 {
-  		margin-left:532px;
+  		margin-left:352px;
       border-right: #ffffff;
   		width:150px;
   	}
