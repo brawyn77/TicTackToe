@@ -106,8 +106,9 @@ button  {
 
 	img {
 	  margin-top: 20px;
-	  width: 150px;
-	  height: 150px;
+		margin-left: 15px;
+	  width: 100px;
+	  height: 100px;
 	}
 
 	#content {
@@ -124,77 +125,6 @@ button  {
 		width:100px;
 		height:500px;
 	}
-
-  /*#contentbox1, #contentbox2, #contentbox3 {
-		padding:10px;
-		border:1px solid #3385ff;
-    border-top: #ffffff;
-		position:absolute;
-		margin-top:1px;
-		height:150px;
-	}
-
-  #contentbox1 {
-		margin-left:9px;
-    border-left: #ffffff;
-		width:150px;
-	}
-	#contentbox2 {
-		margin-left:180px;
-		width:150px;
-	}
-	#contentbox3 {
-		margin-left:352px;
-    border-right: #ffffff;
-		width:150px;
-	}
-
-#contentbox4, #contentbox5, #contentbox6 {
-    padding:10px;
-    border:1px solid #3385ff;
-    position: absolute;
-    margin-top:172px;
-    height:150px;
-}
-
-  #contentbox4 {
-		margin-left:9px;
-    border-left: #ffffff;
-		width:150px;
-	}
-	#contentbox5 {
-		margin-left:180px;
-		width:150px;
-	}
-	#contentbox6 {
-		margin-left:352px;
-    border-right: #ffffff;
-		width:150px;
-	}
-
-  #contentbox7, #contentbox8, #contentbox9 {
-      padding:10px;
-      border:1px solid #3385ff;
-      border-bottom: #ffffff;
-      position: absolute;
-      margin-top:342px;
-      height:150px;
-  }
-
-    #contentbox7 {
-  		margin-left:9px;
-      border-left: #ffffff;
-  		width:150px;
-  	}
-  	#contentbox8 {
-  		margin-left:180px;
-  		width:150px;
-  	}
-  	#contentbox9 {
-  		margin-left:352px;
-      border-right: #ffffff;
-  		width:150px;
-  	}*/
 
 	#contentright {
 			margin-left:30px;

@@ -7,6 +7,7 @@ var player2Wins = 0;
 var gamesToGo = 10;
 var nosOfGames = 10;
 var tiedGames = 0;
+var turn = 1;
 // var successArray = [[0, 0, 0], [1, 1, 1], [0, 0, 0]]
 var row1ArrayX = [null, null, null];
 var row2ArrayX = [null, null, null];
@@ -35,13 +36,35 @@ function setupVariables()  {
 }
 
 // gameplay function which alternates moves and checks that a move has not already been made or that 9 moves havent been completed
+// also needs to set squares and read squares and then put them into the solution arrays
+// Use a hash to store index R1C1 for each div #id to know which arrays to load them into
 $('.column').on('click', function(){
+  if (turn % 2 === 1)  {
+        $(this).append('<img src="X.png" alt="">')
+        .css('border-color', 'black');
+        turn++;
+      } else  {
         $(this).append('<img src="O.png" alt="">')
         .css('border-color', 'black');
+        turn++;
+      }
 });
 
+function turnManager()  {
+    if (turn % 2 === 0) {
+      turn++;
+      console.log("O");
+    } else {
+      turn++;
+      console.log("X");
+    }
+}
+// testing for turnManager
+// for (var i=0; i<9; ++i ){
+//   turnManager();
+// }
 // function to load winner arrays after each move alternating between X and O
-// Use a hash to store index R1C1 for each div #id to know which arrays to load them into
+
 
 
 // function to check arrays for a winner after 5th move
@@ -112,4 +135,4 @@ function resetValues()  {
 }
 
 // put in hard start to troubleshoot the gameplay
-startGame();
+// startGame();
