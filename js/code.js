@@ -8,15 +8,20 @@ var gamesToGo = 10;
 var nosOfGames = 10;
 var tiedGames = 0;
 var turn = 1;
-var ticTackToeArray = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-var row1ArrayX = [null, null, null];
-var row2ArrayX = [null, null, null];
-var row3ArrayX = [null, null, null];
-var column1ArrayX = [null, null, null];
-var column2ArrayX = [null, null, null];
-var column3ArrayX = [null, null, null];
-var diagonal1ArrayX = [null, null, null];
-var diagonal2ArrayX = [null, null, null];
+var ticTacToeArray = [
+[0, 0, 0],
+[0, 0, 0],
+[0, 0, 0]];
+var player1Token = 1;
+var player2Token = 10;
+// var row1ArrayX = [null, null, null];
+// var row2ArrayX = [null, null, null];
+// var row3ArrayX = [null, null, null];
+// var column1ArrayX = [null, null, null];
+// var column2ArrayX = [null, null, null];
+// var column3ArrayX = [null, null, null];
+// var diagonal1ArrayX = [null, null, null];
+// var diagonal2ArrayX = [null, null, null];
 
 //setup function developed to set the initial variables to pass into the gameplay and switch into game mode
 function setupVariables()  {
@@ -30,35 +35,30 @@ function setupVariables()  {
 // gameplay function which alternates moves and checks that a move has not already been made or that 9 moves havent been completed
 // also needs to set squares and read squares and then put them into the solution arrays
 // Use a hash to store index R1C1 for each div #id to know which arrays to load them into
-$('.column','.row').on('click', function(){
-  if (turn % 2 === 1)  {
+$('.column').on('click', function(){
+  var rowIndex = $(this).parent().index('.row');
+  var columnIndex = $(this).index();
+    if (turn % 2 === 1)  {
         $(this).append('<img src="X.png" alt="">')
         .css('border-color', 'black');
-        checkForExistingMove();
+        ticTacToeArray[rowIndex][columnIndex] = player1Token;
+        console.log(ticTacToeArray);
         turn++;
-      } else  {
+    } else  {
         $(this).append('<img src="O.png" alt="">')
         .css('border-color', 'black');
-        checkForExistingMove();
+        ticTacToeArray[rowIndex][columnIndex] = player2Token;
+        console.log(ticTacToeArray);
         turn++;
       }
 });
 
-//turnManager is probably redundant
-function turnManager()  {
-    if (turn % 2 === 0) {
-      turn++;
-      console.log("O");
-    } else {
-      turn++;
-      console.log("X");
-    }
-}
-
 // function to check for an existing move in the square
 function checkForExistingMove()  {
   // read the contents of the squares
-    console.log($('.column').index());
+  var coordinates = $('.column');
+  // var coordinates = $(this).parent().index('.row');
+  console.log(coordinates);
 
   //if existing then prompt for another move else place image
 }
