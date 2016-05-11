@@ -33,24 +33,29 @@ function setupVariables()  {
 }
 
 // gameplay function which alternates moves and checks that a move has not already been made or that 9 moves havent been completed
-// also needs to set squares and read squares and then put them into the solution arrays
-// Use a hash to store index R1C1 for each div #id to know which arrays to load them into
+// also needs to set squares and read squares and then put them into the array representing the board
+// // function to load winner arrays after each move alternating between X and O
 $('.column').on('click', function(){
   var rowIndex = $(this).parent().index('.row');
   var columnIndex = $(this).index();
+
+  if (ticTacToeArray[rowIndex][columnIndex] = '0')  {
     if (turn % 2 === 1)  {
         $(this).append('<img src="X.png" alt="">')
         .css('border-color', 'black');
         ticTacToeArray[rowIndex][columnIndex] = player1Token;
-        console.log(ticTacToeArray);
+        console.table(ticTacToeArray);
         turn++;
-    } else  {
+    }  else  {
         $(this).append('<img src="O.png" alt="">')
         .css('border-color', 'black');
         ticTacToeArray[rowIndex][columnIndex] = player2Token;
-        console.log(ticTacToeArray);
+        console.table(ticTacToeArray);
         turn++;
-      }
+    }
+  } else {
+    console.log("Pick again");
+  }
 });
 
 // function to check for an existing move in the square
@@ -63,11 +68,7 @@ function checkForExistingMove()  {
   //if existing then prompt for another move else place image
 }
 
-// testing for turnManager
-// for (var i=0; i<9; ++i ){
-//   turnManager();
-// }
-// function to load winner arrays after each move alternating between X and O
+
 
 // function to check arrays for a winner after 5th move
 
