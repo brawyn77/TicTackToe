@@ -14,14 +14,6 @@ var ticTacToeArray = [
 [0, 0, 0]];
 var player1Token = 1;
 var player2Token = 10;
-// var row1ArrayX = [null, null, null];
-// var row2ArrayX = [null, null, null];
-// var row3ArrayX = [null, null, null];
-// var column1ArrayX = [null, null, null];
-// var column2ArrayX = [null, null, null];
-// var column3ArrayX = [null, null, null];
-// var diagonal1ArrayX = [null, null, null];
-// var diagonal2ArrayX = [null, null, null];
 
 //setup function developed to set the initial variables to pass into the gameplay and switch into game mode
 function setupVariables()  {
@@ -101,16 +93,6 @@ function startGame()  {
   // $('#p1W').text(player1Name + " wins: " + player1Wins);
   // $('#p2W').text(player2Name + " wins: " + player2Wins);
   // $('#tG').text("Tied games: " + tiedGames);
-
-// should use a class function to cycle through these
-  checkArrays(row1Array);
-  checkArrays(row2Array);
-  checkArrays(row3Array);
-  checkArrays(column1Array);
-  checkArrays(column2Array);
-  checkArrays(column3Array);
-  checkArrays(diagonal1Array);
-  checkArrays(diagonal2Array);
 }
 
 //reset game function
