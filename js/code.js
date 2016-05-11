@@ -110,3 +110,7 @@ function resetValues()  {
 
 // put in hard start to troubleshoot the gameplay
 // startGame();
+
+
+// To dos-: fix non-repeat moves, update readme.md, update comments, fix indenting, check for win, put it all together
+// bonus: put in three games Tic Tac Toe, Tic Tacky Toes, Ticky Tacky Election
