@@ -8,7 +8,7 @@ var gamesToGo = 10;
 var nosOfGames = 10;
 var tiedGames = 0;
 var turn = 1;
-// var successArray = [[0, 0, 0], [1, 1, 1], [0, 0, 0]]
+var ticTackToeArray = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 var row1ArrayX = [null, null, null];
 var row2ArrayX = [null, null, null];
 var row3ArrayX = [null, null, null];
@@ -17,14 +17,6 @@ var column2ArrayX = [null, null, null];
 var column3ArrayX = [null, null, null];
 var diagonal1ArrayX = [null, null, null];
 var diagonal2ArrayX = [null, null, null];
-var row1ArrayO = [null, null, null];
-var row2ArrayO = [null, null, null];
-var row3ArrayO = [null, null, null];
-var column1ArrayO = [null, null, null];
-var column2ArrayO = [null, null, null];
-var column3ArrayO = [null, null, null];
-var diagonal1ArrayO = [null, null, null];
-var diagonal2ArrayO = [1, 1, 1];
 
 //setup function developed to set the initial variables to pass into the gameplay and switch into game mode
 function setupVariables()  {
@@ -38,18 +30,21 @@ function setupVariables()  {
 // gameplay function which alternates moves and checks that a move has not already been made or that 9 moves havent been completed
 // also needs to set squares and read squares and then put them into the solution arrays
 // Use a hash to store index R1C1 for each div #id to know which arrays to load them into
-$('.column').on('click', function(){
+$('.column','.row').on('click', function(){
   if (turn % 2 === 1)  {
         $(this).append('<img src="X.png" alt="">')
         .css('border-color', 'black');
+        checkForExistingMove();
         turn++;
       } else  {
         $(this).append('<img src="O.png" alt="">')
         .css('border-color', 'black');
+        checkForExistingMove();
         turn++;
       }
 });
 
+//turnManager is probably redundant
 function turnManager()  {
     if (turn % 2 === 0) {
       turn++;
@@ -59,13 +54,20 @@ function turnManager()  {
       console.log("X");
     }
 }
+
+// function to check for an existing move in the square
+function checkForExistingMove()  {
+  // read the contents of the squares
+    console.log($('.column').index());
+
+  //if existing then prompt for another move else place image
+}
+
 // testing for turnManager
 // for (var i=0; i<9; ++i ){
 //   turnManager();
 // }
 // function to load winner arrays after each move alternating between X and O
-
-
 
 // function to check arrays for a winner after 5th move
 
@@ -88,9 +90,6 @@ function checkSuccess(count) {
 //winner function
 
 //scoring and games to go function
-// function updateScore()  {
-//
-// }
 
 //start game function
 function startGame()  {
@@ -103,22 +102,14 @@ function startGame()  {
   // $('#tG').text("Tied games: " + tiedGames);
 
 // should use a class function to cycle through these
-  checkArrays(row1ArrayX);
-  checkArrays(row2ArrayX);
-  checkArrays(row3ArrayX);
-  checkArrays(column1ArrayX);
-  checkArrays(column2ArrayX);
-  checkArrays(column3ArrayX);
-  checkArrays(diagonal1ArrayX);
-  checkArrays(diagonal2ArrayX);
-  checkArrays(row1ArrayO);
-  checkArrays(row2ArrayO);
-  checkArrays(row3ArrayO);
-  checkArrays(column1ArrayO);
-  checkArrays(column2ArrayO);
-  checkArrays(column3ArrayO);
-  checkArrays(diagonal1ArrayO);
-  checkArrays(diagonal2ArrayO);
+  checkArrays(row1Array);
+  checkArrays(row2Array);
+  checkArrays(row3Array);
+  checkArrays(column1Array);
+  checkArrays(column2Array);
+  checkArrays(column3Array);
+  checkArrays(diagonal1Array);
+  checkArrays(diagonal2Array);
 }
 
 //reset game function
