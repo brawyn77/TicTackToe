@@ -25,7 +25,7 @@ body {
     float:left;
     padding:10px;
     margin-left: 100px;
-    width:250px;
+    width:200px;
     height:400px;
   }
 
@@ -34,7 +34,7 @@ body {
     margin-left: 150px;
     padding:10px;
     float:left;
-    width:250px;
+    width:200px;
     height:400px;
   }
 
@@ -65,7 +65,7 @@ button  {
   }
 
 #wrapper {
-		width:900px;
+		width:1100px;
 		margin:0px auto;
 		padding:10px;
     display: block;
@@ -74,6 +74,40 @@ button  {
 	#header {
 		height:60px;
 		padding:10px;
+	}
+
+	#board {
+	  width: 450px;
+	  height: 450px;
+	  border-width: thick;
+	  border-style: solid;
+	  border-color: white;
+	}
+
+	.row {
+	  display: flex;
+	  width: 450px;
+	  height: 150px;
+	}
+
+	.column {
+	  width: 150px;
+	  height: 150px;
+	  border-style:solid;
+	  border-width: thin;
+	  border-color: black;
+	  transition: all .2s ease-in-out;
+	}
+
+	.column:hover {
+	  background-color: #3385ff;
+	  transform: scale(1);
+	}
+
+	img {
+	  margin-top: 20px;
+	  width: 150px;
+	  height: 150px;
 	}
 
 	#content {
@@ -86,12 +120,12 @@ button  {
 		float:left;
 	}
 
-	#content-left {
+	#contentleft {
 		width:100px;
 		height:500px;
 	}
 
-  #content-box1, #content-box2, #content-box3 {
+  /*#contentbox1, #contentbox2, #contentbox3 {
 		padding:10px;
 		border:1px solid #3385ff;
     border-top: #ffffff;
@@ -100,22 +134,22 @@ button  {
 		height:150px;
 	}
 
-  #content-box1 {
+  #contentbox1 {
 		margin-left:9px;
     border-left: #ffffff;
 		width:150px;
 	}
-	#content-box2 {
+	#contentbox2 {
 		margin-left:180px;
 		width:150px;
 	}
-	#content-box3 {
+	#contentbox3 {
 		margin-left:352px;
     border-right: #ffffff;
 		width:150px;
 	}
 
-#content-box4, #content-box5, #content-box6 {
+#contentbox4, #contentbox5, #contentbox6 {
     padding:10px;
     border:1px solid #3385ff;
     position: absolute;
@@ -123,22 +157,22 @@ button  {
     height:150px;
 }
 
-  #content-box4 {
+  #contentbox4 {
 		margin-left:9px;
     border-left: #ffffff;
 		width:150px;
 	}
-	#content-box5 {
+	#contentbox5 {
 		margin-left:180px;
 		width:150px;
 	}
-	#content-box6 {
+	#contentbox6 {
 		margin-left:352px;
     border-right: #ffffff;
 		width:150px;
 	}
 
-  #content-box7, #content-box8, #content-box9 {
+  #contentbox7, #contentbox8, #contentbox9 {
       padding:10px;
       border:1px solid #3385ff;
       border-bottom: #ffffff;
@@ -147,23 +181,23 @@ button  {
       height:150px;
   }
 
-    #content-box7 {
+    #contentbox7 {
   		margin-left:9px;
       border-left: #ffffff;
   		width:150px;
   	}
-  	#content-box8 {
+  	#contentbox8 {
   		margin-left:180px;
   		width:150px;
   	}
-  	#content-box9 {
+  	#contentbox9 {
   		margin-left:352px;
       border-right: #ffffff;
   		width:150px;
-  	}
+  	}*/
 
-	#content-right {
-			margin-left:530px;
+	#contentright {
+			margin-left:30px;
 	    width:165px;
 			height:500px;
 	}
