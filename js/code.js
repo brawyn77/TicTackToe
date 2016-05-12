@@ -38,38 +38,56 @@ function startGame() {
     gameStart();
 }
 
+// click on the buttons so that they can be used
+function clickOn ()  {
+  $('.column').on('click', function () {
+          var rowIndex = $(this).parent().index('.row');
+          var columnIndex = $(this).index();
+
+          if (ticTacToeArray[rowIndex][columnIndex] == "0") {
+
+          if (turn % 2 == 1) {
+                  $(this).append('<img src="X.png" alt="">')
+                      .css('border-color', 'black');
+                  ticTacToeArray[rowIndex][columnIndex] = player1Token;
+  // console.table(ticTacToeArray);
+                  checkSuccess(rowIndex, columnIndex);
+                  turn++;
+              } else {
+                  $(this).append('<img src="O.png" alt="">')
+                      .css('border-color', 'black');
+                  ticTacToeArray[rowIndex][columnIndex] = player2Token
+  // console.table(ticTacToeArray);
+                  checkSuccess(rowIndex, columnIndex);
+                  turn++;
+              }
+
+          } else {
+              console.log("Pick again");
+          }
+      });
+  }
+
+
+// function to turn off the game function
+function clickOff ()  {
+  $('.column').off("click");
+  console.log("past clickoff");
+}
+
+// click off the buttons so that only the game play can occur
+// function buttonClickOff () {
+//   $("button").off("click");
+// }
+
+
 // gameplay function which alternates moves
 // checks that 9 moves havent been completed
 // check for an existing move in the square
 //if existing then prompt for another move else place image
 // also needs to put each move into an array representing the board
 function gameStart() {
-$('.column').on('click', function () {
-        var rowIndex = $(this).parent().index('.row');
-        var columnIndex = $(this).index();
-
-        if (ticTacToeArray[rowIndex][columnIndex] == "0") {
-
-        if (turn % 2 == 1) {
-                $(this).append('<img src="X.png" alt="">')
-                    .css('border-color', 'black');
-                ticTacToeArray[rowIndex][columnIndex] = player1Token;
-// console.table(ticTacToeArray);
-                checkSuccess(rowIndex, columnIndex);
-                turn++;
-            } else {
-                $(this).append('<img src="O.png" alt="">')
-                    .css('border-color', 'black');
-                ticTacToeArray[rowIndex][columnIndex] = player2Token
-// console.table(ticTacToeArray);
-                checkSuccess(rowIndex, columnIndex);
-                turn++;
-            }
-
-        } else {
-            console.log("Pick again");
-        }
-    });
+clickOn();
 }
 
 // function to check arrays for a winner after 5th move
@@ -110,34 +128,30 @@ function checkSuccess(rowIndex, columnIndex) {
 
 //winner function - scoring and games to go function
 function runWinner(x)  {
-  console.log("Winner")
-  clickOff();
-  if (x = 3) {
+  if (x == '3') {
     player1Wins++;
-    gamesToGo--;
-    gameStart();
+    nosOfGames--;
+    $('#gToG').text("Games to go: " + nosOfGames);
+    $('#p1W').text(player1Name + " wins: " + player1Wins);
+    $('#p2W').text(player2Name + " wins: " + player2Wins);
+    $('#tG').text("Tied games: " + tiedGames);
+    $('#message').text(player1Name +" won this game! Well Done! Hit Start Game button to start the next game.")
+    clickOff();
+    // gameStart();
   }
   else  {
     player2Wins++;
-    gamesToGo--;
-    gameStart();
+    nosOfGames--;
+    $('#gToG').text("Games to go: " + nosOfGames);
+    $('#p1W').text(player1Name + " wins: " + player1Wins);
+    $('#p2W').text(player2Name + " wins: " + player2Wins);
+    $('#tG').text("Tied games: " + tiedGames);
+    $('#message').text(player2Name +" won this game! Well Done! Hit Start Game button to start the next game.")
+    clickOff();
+    // gameStart();
   }
 }
 
-// function to turn off the game function
-function clickOff ()  {
-  $('.column').off("click", gameStart);
-}
-
-// click off the buttons so that only the game play can occur
-function buttonClickOff () {
-  $("button").off("click");
-}
-
-// click on the buttons so that they can be used
-function buttonClickOn ()  {
-  $("button").on("click");
-}
 //reset game function
 function resetValues() {
     player1Name = "";
@@ -152,5 +166,3 @@ function resetValues() {
 }
   startGame();
 // resetValues();
-
-// To dos-: fix update readme.md, put it all together
