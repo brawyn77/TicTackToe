@@ -1,11 +1,11 @@
 // setup global variables we need: player1Name, player2Name, player1Wins, player2Wins, gamesToGo, gamesNos, row1Array, row2Array, row3Array, column1Array, column2Array, column3Array, diagonal1Array, diagonal2Array, tiedGames, displayNoneSwitch
 // set playernames to simplifying troubleshooting the game play
-var player1Name = "Bad";
-var player2Name = "Bob";
+var player1Name = "";
+var player2Name = "";
 var player1Wins = 0;
 var player2Wins = 0;
 var gamesToGo = 0;
-var nosOfGames = 3;
+var nosOfGames = 0;
 var tiedGames = 0;
 var turn = 1;
 var ticTacToeArray = [
@@ -16,6 +16,7 @@ var ticTacToeArray = [
 var player1Token = 1;
 var player2Token = 10;
 var win = 0;
+var moves = 0;
 
 //setup function developed to set the initial variables to pass into the gameplay and switch into game mode
 function setupVariables() {
@@ -24,13 +25,14 @@ function setupVariables() {
     nosOfGames = document.getElementById('nosOfGames').value;
     $('#setupScreen').css({"display": "none"});
     $('#wrapper').css({"display": "initial"});
+    intialiseMatch();
 }
 
 //start game function
 // put players names into the game board
 // put games in games to go
 // put in initial scores into Player1, Player2 and Tied games
-function startGame() {
+function intialiseMatch() {
     $('#gToG').text("Games to go: " + nosOfGames);
     $('#p1W').text(player1Name + " wins: " + player1Wins);
     $('#p2W').text(player2Name + " wins: " + player2Wins);
@@ -38,41 +40,13 @@ function startGame() {
     gameStart();
 }
 
-// click on the buttons so that they can be used
-function clickOn ()  {
-  $('.column').on('click', function () {
-          var rowIndex = $(this).parent().index('.row');
-          var columnIndex = $(this).index();
-
-          if (ticTacToeArray[rowIndex][columnIndex] == "0") {
-
-          if (turn % 2 == 1) {
-                  $(this).append('<img src="X.png" alt="">')
-                      .css('border-color', 'black');
-                  ticTacToeArray[rowIndex][columnIndex] = player1Token;
-  // console.table(ticTacToeArray);
-                  checkSuccess(rowIndex, columnIndex);
-                  turn++;
-              } else {
-                  $(this).append('<img src="O.png" alt="">')
-                      .css('border-color', 'black');
-                  ticTacToeArray[rowIndex][columnIndex] = player2Token
-  // console.table(ticTacToeArray);
-                  checkSuccess(rowIndex, columnIndex);
-                  turn++;
-              }
-
-          } else {
-              console.log("Pick again");
-          }
-      });
-  }
-
-
-// function to turn off the game function
-function clickOff ()  {
-  $('.column').off("click");
-  console.log("past clickoff");
+// reset game values
+function resetGame ()  {
+  $("#board img:last-child").remove();
+  turn = 1;
+  moves = 0;
+  win = 0;
+  gameStart();
 }
 
 // click off the buttons so that only the game play can occur
@@ -86,10 +60,44 @@ function clickOff ()  {
 // check for an existing move in the square
 //if existing then prompt for another move else place image
 // also needs to put each move into an array representing the board
-function gameStart() {
-clickOn();
-}
+function gameStart ()  {
+  if (nosOfGames > 0) {
+    ticTacToeArray = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
+    ];
 
+  $('.column').on('click', function () {
+          var rowIndex = $(this).parent().index('.row');
+          var columnIndex = $(this).index();
+
+          if (ticTacToeArray[rowIndex][columnIndex] == "0") {
+
+          if (turn % 2 == 1) {
+                  $(this).append('<img src="X.png" alt="">')
+                      .css('border-color', 'black');
+                  ticTacToeArray[rowIndex][columnIndex] = player1Token;
+                  checkSuccess(rowIndex, columnIndex);
+                  turn++;
+              } else {
+                  $(this).append('<img src="O.png" alt="">')
+                      .css('border-color', 'black');
+                  ticTacToeArray[rowIndex][columnIndex] = player2Token
+                  checkSuccess(rowIndex, columnIndex);
+                  turn++;
+              }
+
+          } else {
+              console.log("Pick again");
+          }
+      });
+      if (nosOfGames == 0 ) {
+        resetValues();
+        setupVariables();
+      }
+  }
+}
 // function to check arrays for a winner after 5th move
 // transform the array of three arrays of 3 elements each into a single array with 9 elements
 // develop a winner template for each of the 8 win conditions using the element indexes to pull out the values
@@ -113,14 +121,20 @@ function checkSuccess(rowIndex, columnIndex) {
     var winner7 = merged7[0] + merged7[4] + merged7[8];
     var winner8 = merged8[2] + merged8[4] + merged8[6];
     var winner = [winner1, winner2, winner3, winner4, winner5, winner6, winner7, winner8];
+    moves++;
+    console.log(moves);
 
-    for (var n = 0; n < winner.length; n++) {
-      if (winner[n] == 3)  {
+    for (var i = 0; i < winner.length; i++) {
+      if (winner[i] == 3)  {
         win = 3;
         runWinner(win);
       }
-      else if (winner[n] == 30)  {
+      else if (winner[i] == 30)  {
         win = 5;
+        runWinner(win);
+      }
+      else if (moves == 9)  {
+        win = 11;
         runWinner(win);
       }
     }
@@ -133,26 +147,26 @@ function runWinner(x)  {
     nosOfGames--;
     $('#gToG').text("Games to go: " + nosOfGames);
     $('#p1W').text(player1Name + " wins: " + player1Wins);
-    $('#p2W').text(player2Name + " wins: " + player2Wins);
-    $('#tG').text("Tied games: " + tiedGames);
-    $('#message').text(player1Name +" won this game! Well Done! Hit Start Game button to start the next game.")
-    clickOff();
-    // gameStart();
+    $('#message').text(player1Name +" won this game! Well Done!")
   }
-  else  {
+  else if (x == 5) {
     player2Wins++;
     nosOfGames--;
     $('#gToG').text("Games to go: " + nosOfGames);
-    $('#p1W').text(player1Name + " wins: " + player1Wins);
     $('#p2W').text(player2Name + " wins: " + player2Wins);
-    $('#tG').text("Tied games: " + tiedGames);
-    $('#message').text(player2Name +" won this game! Well Done! Hit Start Game button to start the next game.")
-    clickOff();
-    // gameStart();
+    $('#message').text(player2Name +" won this game! Well Done!")
   }
+  else if (x == 11)  {
+    tiedGames++;
+    nosOfGames--;
+    $('#gToG').text("Games to go: " + nosOfGames);
+    $('#tG').text("Tied games: " + tiedGames);
+    $('#message').text("This was a tied game. Better luck next time");
+  }
+    resetGame();
 }
 
-//reset game function
+//reset match function
 function resetValues() {
     player1Name = "";
     player2Name = "";
@@ -164,5 +178,4 @@ function resetValues() {
     $('#setupScreen').css({"display": "initial"});
     $('#wrapper').css({"display": "none"});
 }
-  startGame();
-// resetValues();
+   resetValues();
