@@ -97,6 +97,9 @@ function gameStart ()  {
         setupVariables();
       }
   }
+  else {
+    $('#message').text("Match completed. Please click the Reset button for a new match.")
+  }
 }
 // function to check arrays for a winner after 5th move
 // transform the array of three arrays of 3 elements each into a single array with 9 elements
