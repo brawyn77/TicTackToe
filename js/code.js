@@ -44,6 +44,7 @@ function intialiseMatch() {
 function resetGame () {
   $("#board img:last-child").remove();
     gameCounter++;
+      console.log(gameCounter);
       if (gameCounter % 2 == 0) {
         turn = 2;
     } else {
@@ -60,6 +61,7 @@ function resetGame () {
 //if existing then prompt for another move else place image
 // also needs to put each move into an array representing the board
 function gameStart () {
+    $("#board img:last-child").remove();
   if (nosOfGames > 0) {
         ticTacToeArray = [
             [0, 0, 0],
@@ -72,6 +74,7 @@ function gameStart () {
             var columnIndex = $(this).index();
             if (nosOfGames == 0) {
                 $('#message').text("Match completed. Please click the Reset button for a new match.");
+                gameCounter = 0;
                 resetGame();
             }
 
@@ -128,7 +131,7 @@ function checkSuccess(rowIndex, columnIndex) {
         win = 5;
         runWinner(win);
       }
-      else if (moves == 8)  {
+      else if (moves == 9)  {
         win = 11;
         runWinner(win);
       }
@@ -140,10 +143,10 @@ function runWinner(winChecker)  {
   if (winChecker == '3') {
     player1Wins++;
     nosOfGames--;
-    $('#gToG').text("Games to go: " + nosOfGames);
+    $('#gToG').text("Games to go: " + (nosOfGames));
     $('#p1W').text(player1Name + " wins: " + player1Wins);
     $('#message').text(player1Name +" won this game! Well Done!")
-    resetGame();
+      resetGame();
   }
   else if (winChecker == 5) {
     player2Wins++;
@@ -151,7 +154,7 @@ function runWinner(winChecker)  {
     $('#gToG').text("Games to go: " + (nosOfGames));
     $('#p2W').text(player2Name + " wins: " + player2Wins);
     $('#message').text(player2Name +" won this game! Well Done!")
-    resetGame();
+      resetGame();
   }
   else if (winChecker == 11)  {
     tiedGames++;
@@ -159,9 +162,9 @@ function runWinner(winChecker)  {
     $('#gToG').text("Games to go: " + (nosOfGames));
     $('#tG').text("Tied games: " + (tiedGames));
     $('#message').text("This was a tied game. Better luck next time");
-    resetGame();
+      resetGame();
   }
-    resetGame();
+
 }
 
 //reset function for the match
