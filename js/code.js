@@ -4,7 +4,6 @@ var player1Name = "";
 var player2Name = "";
 var player1Wins = 0;
 var player2Wins = 0;
-var gamesToGo = 0;
 var nosOfGames = 0;
 var tiedGames = 0;
 var turn = 1;
@@ -43,17 +42,10 @@ function intialiseMatch() {
 // reset game values
 function resetGame ()  {
   $("#board img:last-child").remove();
-  turn = 1;
   moves = 0;
   win = 0;
   gameStart();
 }
-
-// click off the buttons so that only the game play can occur
-// function buttonClickOff () {
-//   $("button").off("click");
-// }
-
 
 // gameplay function which alternates moves
 // checks that 9 moves havent been completed
@@ -72,33 +64,28 @@ function gameStart ()  {
           var rowIndex = $(this).parent().index('.row');
           var columnIndex = $(this).index();
 
-          if (ticTacToeArray[rowIndex][columnIndex] == "0") {
-
-          if (turn % 2 == 1) {
+          if (ticTacToeArray[rowIndex][columnIndex] == "0" & nosOfGames != 0) {
+              if (turn % 2 == 1) {
                   $(this).append('<img src="X.png" alt="">')
                       .css('border-color', 'black');
                   ticTacToeArray[rowIndex][columnIndex] = player1Token;
                   checkSuccess(rowIndex, columnIndex);
-                  turn++;
-              } else {
+                  console.log("an X");
+                  // turn++;
+              } else if (turn % 2 == 0) {
                   $(this).append('<img src="O.png" alt="">')
                       .css('border-color', 'black');
                   ticTacToeArray[rowIndex][columnIndex] = player2Token
                   checkSuccess(rowIndex, columnIndex);
-                  turn++;
+                  console.log("an O");
               }
-
-          } else {
-              console.log("Pick again");
+              turn++;
+              console.log(turn);
           }
       });
-      if (nosOfGames == 0 ) {
-        resetValues();
-        setupVariables();
-      }
   }
   else {
-    $('#message').text("Match completed. Please click the Reset button for a new match.")
+    $('#message').text("Match completed. Please click the Reset button for a new match.");
   }
 }
 // function to check arrays for a winner after 5th move
@@ -125,7 +112,6 @@ function checkSuccess(rowIndex, columnIndex) {
     var winner8 = merged8[2] + merged8[4] + merged8[6];
     var winner = [winner1, winner2, winner3, winner4, winner5, winner6, winner7, winner8];
     moves++;
-    console.log(moves);
 
     for (var i = 0; i < winner.length; i++) {
       if (winner[i] == 3)  {
@@ -145,6 +131,7 @@ function checkSuccess(rowIndex, columnIndex) {
 
 //winner function - scoring and games to go function
 function runWinner(x)  {
+
   if (x == '3') {
     player1Wins++;
     nosOfGames--;
@@ -175,7 +162,7 @@ function resetValues() {
     player2Name = "";
     player1Wins = 0;
     player2Wins = 0;
-    gamesToGo = 0;
+    turn = 1;
     nosOfGames = 0;
     tiedGames = 0;
     $('#setupScreen').css({"display": "initial"});
