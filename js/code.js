@@ -1,11 +1,11 @@
 // setup global variables we need: player1Name, player2Name, player1Wins, player2Wins, gamesToGo, gamesNos, row1Array, row2Array, row3Array, column1Array, column2Array, column3Array, diagonal1Array, diagonal2Array, tiedGames, displayNoneSwitch
 // set playernames to simplifying troubleshooting the game play
-var player1Name = "";
-var player2Name = "";
+var player1Name = "Bad";
+var player2Name = "Bob";
 var player1Wins = 0;
 var player2Wins = 0;
 var gamesToGo = 0;
-var nosOfGames = 0;
+var nosOfGames = 3;
 var tiedGames = 0;
 var turn = 1;
 var ticTacToeArray = [
@@ -86,6 +86,7 @@ function checkSuccess(rowIndex, columnIndex) {
   var winner = [winner1, winner2, winner3, winner4, winner5, winner6, winner7, winner8];
 
   for (var i = 0; i < winner.length; i++) {
+    console.log(winner[i]);
     if (winner[i] == 3)  {
       console.log("X wins");
       runWinner();
@@ -129,8 +130,8 @@ function resetValues() {
     $('#setupScreen').css({"display": "initial"});
     $('#wrapper').css({"display": "none"});
 }
-
-resetValues();
+  startGame();
+// resetValues();
 
 // To dos-: fix update readme.md, put it all together
 // bonus: put in three games Tic Tac Toe, Tic Tacky Toes, Ticky Tacky Election

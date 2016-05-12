@@ -47,7 +47,7 @@ button {
     border-radius: 5px;
     margin-top: 30px;
     margin-bottom: 30px;
-    background-color: #3385ff
+    background-color: #ffffff
 }
 p {
     font-size: 18px;
@@ -86,7 +86,7 @@ p {
     transition: all .2s ease-in-out;
 }
 .column:hover {
-    background-color: #fffff1;
+    background-color: #ffffe6;
     transform: scale(1);
 }
 img {
