@@ -6,7 +6,6 @@ var player1Wins = 0;
 var player2Wins = 0;
 var nosOfGames = 0;
 var tiedGames = 0;
-var turn = 1;
 var ticTacToeArray = [
     [0, 0, 0],
     [0, 0, 0],
@@ -15,6 +14,7 @@ var ticTacToeArray = [
 var player1Token = 1;
 var player2Token = 10;
 var win = 0;
+var turn = 1;
 var moves = 0;
 
 //setup function developed to set the initial variables to pass into the gameplay and switch into game mode
@@ -36,13 +36,19 @@ function intialiseMatch() {
     $('#p1W').text(player1Name + " wins: " + player1Wins);
     $('#p2W').text(player2Name + " wins: " + player2Wins);
     $('#tG').text("Tied games: " + tiedGames);
+    console.log(nosOfGames);
     gameStart();
 }
 
 // reset game values
 function resetGame ()  {
   $("#board img:last-child").remove();
-  moves = 0;
+  if (turn % 2 == 0 & moves % 2 ==0) {
+    turn++;
+    moves = 1;
+  } else {
+    moves = 0;
+  }
   win = 0;
   gameStart();
 }
@@ -63,31 +69,33 @@ function gameStart ()  {
   $('.column').on('click', function () {
           var rowIndex = $(this).parent().index('.row');
           var columnIndex = $(this).index();
+          console.log(nosOfGames);
+          if (nosOfGames == 0) {
+              $('#message').text("Match completed. Please click the Reset button for a new match.");
+              resetGame();
+          }
 
-          if (ticTacToeArray[rowIndex][columnIndex] == "0" & nosOfGames != 0) {
+          if (ticTacToeArray[rowIndex][columnIndex] == 0) {
+            console.log(turn, moves);
               if (turn % 2 == 1) {
+                console.log(nosOfGames);
                   $(this).append('<img src="X.png" alt="">')
                       .css('border-color', 'black');
                   ticTacToeArray[rowIndex][columnIndex] = player1Token;
                   checkSuccess(rowIndex, columnIndex);
-                  console.log("an X");
-                  // turn++;
+                  turn++;
               } else if (turn % 2 == 0) {
                   $(this).append('<img src="O.png" alt="">')
                       .css('border-color', 'black');
                   ticTacToeArray[rowIndex][columnIndex] = player2Token
                   checkSuccess(rowIndex, columnIndex);
-                  console.log("an O");
+                  turn++;
               }
-              turn++;
-              console.log(turn);
           }
       });
   }
-  else {
-    $('#message').text("Match completed. Please click the Reset button for a new match.");
-  }
 }
+
 // function to check arrays for a winner after 5th move
 // transform the array of three arrays of 3 elements each into a single array with 9 elements
 // develop a winner template for each of the 8 win conditions using the element indexes to pull out the values
@@ -131,27 +139,29 @@ function checkSuccess(rowIndex, columnIndex) {
 
 //winner function - scoring and games to go function
 function runWinner(x)  {
-
   if (x == '3') {
     player1Wins++;
     nosOfGames--;
     $('#gToG').text("Games to go: " + nosOfGames);
     $('#p1W').text(player1Name + " wins: " + player1Wins);
     $('#message').text(player1Name +" won this game! Well Done!")
+    resetGame();
   }
   else if (x == 5) {
     player2Wins++;
     nosOfGames--;
-    $('#gToG').text("Games to go: " + nosOfGames);
+    $('#gToG').text("Games to go: " + (nosOfGames));
     $('#p2W').text(player2Name + " wins: " + player2Wins);
     $('#message').text(player2Name +" won this game! Well Done!")
+    resetGame();
   }
   else if (x == 11)  {
     tiedGames++;
     nosOfGames--;
-    $('#gToG').text("Games to go: " + nosOfGames);
-    $('#tG').text("Tied games: " + tiedGames);
+    $('#gToG').text("Games to go: " + (nosOfGames));
+    $('#tG').text("Tied games: " + (tiedGames));
     $('#message').text("This was a tied game. Better luck next time");
+    resetGame();
   }
     resetGame();
 }
@@ -162,10 +172,10 @@ function resetValues() {
     player2Name = "";
     player1Wins = 0;
     player2Wins = 0;
-    turn = 1;
     nosOfGames = 0;
     tiedGames = 0;
     $('#setupScreen').css({"display": "initial"});
     $('#wrapper').css({"display": "none"});
 }
+console.log("Reset")
    resetValues();
